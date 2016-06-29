@@ -10,7 +10,7 @@ def read():
     return train
 
 def cross_validate(train):
-    clf = LogisticRegression(random_state=1)
+    clf = LogisticRegression(random_state=1, class_weight="balanced")
 
     predictors = train.columns.tolist()
     predictors = [p for p in predictors if p not in settings.NON_PREDICTORS]
@@ -21,10 +21,23 @@ def cross_validate(train):
 def compute_error(target, predictions):
     return metrics.accuracy_score(target, predictions)
 
+def compute_false_negatives(target, predictions):
+    df = pd.DataFrame({"target": target, "predictions": predictions})
+    return df[(df["target"] == 1) & (df["predictions"] == 0)].shape[0] / (df[(df["target"] == 1)].shape[0] + 1)
+
+def compute_false_positives(target, predictions):
+    df = pd.DataFrame({"target": target, "predictions": predictions})
+    return df[(df["target"] == 0) & (df["predictions"] == 1)].shape[0] / (df[(df["predictions"] == 1)].shape[0] + 1)
+
 if __name__ == "__main__":
     train = read()
     predictions = cross_validate(train)
     error = compute_error(train[settings.TARGET], predictions)
+    fn = compute_false_negatives(train[settings.TARGET], predictions)
+    fp = compute_false_positives(train[settings.TARGET], predictions)
     print("Accuracy Score: {}".format(error))
+    print("False Negatives: {}".format(fn))
+    print("False Positives: {}".format(fp))
+
 
 
