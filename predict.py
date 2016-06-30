@@ -27,7 +27,7 @@ def compute_false_negatives(target, predictions):
 
 def compute_false_positives(target, predictions):
     df = pd.DataFrame({"target": target, "predictions": predictions})
-    return df[(df["target"] == 0) & (df["predictions"] == 1)].shape[0] / (df[(df["predictions"] == 1)].shape[0] + 1)
+    return df[(df["target"] == 0) & (df["predictions"] == 1)].shape[0] / (df[(df["target"] == 0)].shape[0] + 1)
 
 if __name__ == "__main__":
     train = read()
