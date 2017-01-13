@@ -36,6 +36,7 @@ HEADERS = {
         "balance",
         "loan_age",
         "months_to_maturity",
+        "adj_months_to_maturity",
         "maturity_date",
         "msa",
         "delinquency_status",
@@ -55,7 +56,8 @@ HEADERS = {
         "repurchase_proceeds",
         "other_foreclosure_proceeds",
         "non_interest_bearing_balance",
-        "principal_forgiveness_balance"
+        "principal_forgiveness_balance",
+        "repurchase_make_whole_process_flag"
     ]
 }
 
