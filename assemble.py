@@ -26,7 +26,9 @@ HEADERS = {
         "zip",
         "insurance_percentage",
         "product_type",
-        "co_borrower_credit_score"
+        "co_borrower_credit_score",
+        "mortgage_insurance_type",
+        "relocation_mortgage_indicator"
     ],
     "Performance": [
         "id",
@@ -36,6 +38,7 @@ HEADERS = {
         "balance",
         "loan_age",
         "months_to_maturity",
+        "months_to_legal_maturity",
         "maturity_date",
         "msa",
         "delinquency_status",
@@ -55,7 +58,10 @@ HEADERS = {
         "repurchase_proceeds",
         "other_foreclosure_proceeds",
         "non_interest_bearing_balance",
-        "principal_forgiveness_balance"
+        "principal_forgiveness_balance",
+        "repurchase_make_whole_proceeds_flag",
+        "foreclosure_principal_write_off_amount",
+        "servicing_activity_indicator"
     ]
 }
 

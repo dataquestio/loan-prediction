@@ -43,7 +43,8 @@ def annotate(acquisition, performance_summary):
         "property_type",
         "occupancy_status",
         "property_state",
-        "product_type"
+        "product_type",
+        "relocation_mortgage_indicator"
     ]:
         acquisition[column] = acquisition[column].astype('category').cat.codes
 
