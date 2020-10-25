@@ -74,7 +74,7 @@ def concatenate(prefix="Acquisition"):
         if not f.startswith(prefix):
             continue
 
-        data = pd.read_csv(os.path.join(settings.DATA_DIR, f), sep="|", header=None, names=HEADERS[prefix], index_col=False)
+        data = pd.read_csv(os.path.join(settings.DATA_DIR, f), sep="|", header=None, names=HEADERS[prefix], index_col=None)
         data = data[SELECT[prefix]]
         full.append(data)
 
